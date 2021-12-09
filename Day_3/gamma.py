@@ -1,6 +1,6 @@
 l = []
-gamma = []
-ep = []
+gamma = ""
+ep = ""
 leng = 0
 countOne = 0
 countZero = 0
@@ -19,4 +19,8 @@ for x in range(leng):
             countZero += 1
         else:
             countOne += 1
+    if countZero > countOne:
+        gamma += str(countZero)
+    else:
+        gamma += str(countOne)
 
