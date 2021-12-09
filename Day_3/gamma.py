@@ -13,5 +13,10 @@ with open("binary.txt") as f:
 
 leng = len(l[0])
 
-for x in l:
-    x
+for x in range(leng):
+    for y in l:
+        if y[x] == "0":
+            countZero += 1
+        else:
+            countOne += 1
+
