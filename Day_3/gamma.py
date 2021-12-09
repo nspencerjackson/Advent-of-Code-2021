@@ -8,6 +8,11 @@ countZero = 0
 #x = int("111111", 2)
 #print(x)
 
+def opposite(inGamma):
+    o = ""
+    for i in range(len(inGamma)):
+        if
+
 with open("binary.txt") as f:
     l = f.readlines()
 
@@ -24,3 +29,4 @@ for x in range(leng):
     else:
         gamma += str(countOne)
 
+ep = opposite(gamma)
