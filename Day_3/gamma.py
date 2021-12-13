@@ -51,6 +51,22 @@ print("total = ", total)
 #### PART 2 ####
 
 def commonDigit(inArray, inDigit, inRange, bitLoc):
+    countOne = 0
+    countero = 0
+    for i in range(inRange):
+        tempV = inArray[i]
+        if tempV[inDigit] == "1":
+            countOne += 1
+        else:
+            countZero += 1
+    if countOne > countZero:
+        val = 1
+    elif countOne == countZero:
+        val = 1
+    else:
+        val = 0
+
+def rating(inArray, inRange, bitLoc):
     tempArray = []
     tempValue = ""
     for i in range(inRange):
@@ -58,12 +74,6 @@ def commonDigit(inArray, inDigit, inRange, bitLoc):
         if int(tempValue[bitLoc]) == inDigit:
             tempArray.append(tempValue)
     return tempArray
-
-def rating(inArray, inRange, bitLoc):
-    tempArray = []
-    tempValue = ""
-    for i in range(inRange):
-        tempValue = inArray[i]
 
 
 test = ["11110", "10110", "10111", "10101", "11100", "10000", "11001", "01101", "00000", "00110", "01001"]
