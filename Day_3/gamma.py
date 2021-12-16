@@ -50,11 +50,13 @@ print("total = ", total)
 
 #### PART 2 ####
 
-def recursion(inArray, inBool):
+def recursion(inArray, inBool, bitLoc):
     outArray = []
+    newBitLoc = bitLoc
     leng = len(inArray)
     if leng > 1:
         # go through until only 1 number left
+        #
     else:
         outArray = inArray
     return outArray
