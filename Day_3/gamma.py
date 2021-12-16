@@ -50,21 +50,32 @@ print("total = ", total)
 
 #### PART 2 ####
 
+def recursion(inArray, inBool):
+    outArray = []
+    leng = len(inArray)
+    if leng > 1:
+        # go through until only 1 number left
+    else:
+        outArray = inArray
+    return outArray
+
 def commonDigit(inArray, inDigit, inRange, bitLoc):
     countOne = 0
-    countero = 0
+    countZero = 0
     for i in range(inRange):
         tempV = inArray[i]
         if tempV[inDigit] == "1":
             countOne += 1
         else:
             countZero += 1
+    print("count 0: ", countZero ,", while count 1: ", countOne)
     if countOne > countZero:
         val = 1
     elif countOne == countZero:
         val = 1
     else:
         val = 0
+    return val
 
 def rating(inArray, inRange, bitLoc):
     tempArray = []
