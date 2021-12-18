@@ -57,7 +57,10 @@ def recursion(inArray, inDefault, bitLoc):
     if leng > 1:
         # go through until only 1 number left
         outArray = commonDigit(inArray, leng, bitLoc, inDefault)
-        recursion(outArray, inDefault, bitLoc)
+        print("out:")
+        print(outArray)
+        newBitLoc += 1
+        recursion(outArray, inDefault, newBitLoc)
     else:
         outArray = inArray
     return outArray
@@ -75,7 +78,7 @@ def commonDigit(inArray, inRange, bitLoc, inDefault):
     print("count 0: ", countZero ,", while count 1: ", countOne)
     if countOne > countZero:
         val = rating(inArray, inRange, bitLoc, 1)
-    elif countOne == countZero:
+    elif countOne < countZero:
         val = rating(inArray, inRange, bitLoc, 0)
     else:
         val = rating(inArray, inRange, bitLoc, inDefault)
@@ -91,9 +94,11 @@ def rating(inArray, inRange, bitLoc, inDigit):
     return tempArray
 
 
-test = ["11110", "10110", "10111", "10101", "11100", "10000", "11001", "01101", "00000", "00110", "01001"]
+#test = ["11110", "10110", "10111", "10101", "11100", "10000", "11001", "01101", "00000", "00110", "01001"]
+test = ["00100", "11110", "10110", "10111", "10101", "01111", "00111", "11100", "10000", "11001", "00010", "01010"]
 
-for o in range(4):
+#for o in range(4):
     # make it so inDigit doesn't exist, it is calulated by seeing what in 'o' is more popular
-    ar = recursion(test, 1, o)
-    print(ar)
+ar = recursion(test, 1, 0)
+print(ar[0])
+print(int(ar[0], 2))
