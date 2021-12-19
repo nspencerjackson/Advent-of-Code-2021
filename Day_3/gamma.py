@@ -10,6 +10,7 @@ e = 0
 #x = int("111111", 2)
 #print(x)
 
+# function to opposite 
 def opposite(inGamma):
     o = ""
     for i in range(len(inGamma)):
