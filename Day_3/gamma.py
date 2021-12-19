@@ -59,23 +59,29 @@ print("total = ", total)
 
 #### PART 2 ####
 
+# Function to swap countOne and countZero for co2 values
 def swap(inFirst, inSecond):
     ret = inSecond
     return ret
 
+# Recursion function to go through all the lines and bits
 def recursion(inArray, inDefault, bitLoc, coTwo):
     outArray = []
     newBitLoc = bitLoc
     leng = len(inArray)
+    # Checks if length of imported array has more than 1 element in it
     if leng > 1:
         # go through until only 1 number left
         outArray = commonDigit(inArray, leng, bitLoc, inDefault, coTwo)
         newBitLoc += 1
+        # enter recursion function again
         outArray = recursion(outArray, inDefault, newBitLoc, coTwo)
+    # only 1 element left so don't need to go back into function again
     else:
         outArray = inArray
     return outArray
 
+# Function to check the most common digit in the bit
 def commonDigit(inArray, inRange, bitLoc, inDefault, coTwo):
     val = []
     countOne = 0
