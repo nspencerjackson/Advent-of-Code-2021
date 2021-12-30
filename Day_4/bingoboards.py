@@ -46,22 +46,24 @@ class BingoBoard:
         if temp == self.x:
             self.bingoBool = True
         else:
+            temp = 0
+            incX = 0
             for i in range((len(self.bingo - 1)), 0, -1):
-                if self.bingo[i][i] == "x":
+                if self.bingo[i][incX] == "x":
                     temp += 1
+                incX += 1
             if temp == self.x:
                 self.bingoBool = True
 
     def checkBingo(self):
         retBool = False
         # Checks Horizontal Lines
-        temp = self.checkLine(False)
-        if temp:
-            retBool = True
-        else:
+        self.checkLine(False)
+        if not self.bingoBool:
             # Checks Vertical Lines
-            temp = self.checkLine(True)
-            if temp:
-                retBool = True
+            self.checkLine(True)
+            if not self.bingoBool:
+                # Checks Diagonal Lines
+                self.checkDiagonal()
 
-        return retBool
+        return self.bingoBool
