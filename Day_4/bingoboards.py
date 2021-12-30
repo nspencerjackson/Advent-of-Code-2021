@@ -6,7 +6,7 @@ class BingoBoard:
         self.bingo = []
         self.x = inX
         self.y = inY
-        self.count = []
+        self.bingoBool = False
         for i in range(self.y):
             temp = []
             for o in range(self.x):
@@ -16,23 +16,52 @@ class BingoBoard:
     def getBingo(self):
         print(self.bingo)
 
-    def checkBingo(self, i, o):
-        if i == 0 and o == 0:
-
-
     def updateBingo(self, inNum):
         for i in range(self.y):
             for o in range(self.x):
                 if self.board[i][o] == inNum:
-                        self.bingo[i][o] = checkBingo(i, o)
+                    self.bingo[i][o] = "x"
                     break
+    
+    def checkLine(self, rev):
+        for i in range(self.x):
+            temp = 0
+            for o in range(self.y):   
+                if not rev:
+                    if self.bingo[i][o] == "x":
+                        temp += 1
+                else:
+                    if self.bingo[o][i] == "x":
+                        temp += 1
+            if temp == self.x:
+                self.bingoBool = True
+                break
+        return self.bingoBool
+
+    def checkDiagonal(self):
+        temp = 0
+        for i in range(self.x):
+            if self.bingo[i][i] == "x":
+                temp += 1
+        if temp == self.x:
+            self.bingoBool = True
+        else:
+            for i in range((len(self.bingo - 1)), 0, -1):
+                if self.bingo[i][i] == "x":
+                    temp += 1
+            if temp == self.x:
+                self.bingoBool = True
 
     def checkBingo(self):
-        tempX = 0
-        tempY = 0
-        for i in range(self.y):
-            for o in range(self.x):
-                if self.bingo[i][o] == "x":
-                    if i == 0 and o == 0:
-                        
-        if self.bingo
+        retBool = False
+        # Checks Horizontal Lines
+        temp = self.checkLine(False)
+        if temp:
+            retBool = True
+        else:
+            # Checks Vertical Lines
+            temp = self.checkLine(True)
+            if temp:
+                retBool = True
+
+        return retBool
