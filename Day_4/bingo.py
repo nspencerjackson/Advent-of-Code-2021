@@ -26,7 +26,7 @@ from bingoboards import *
 #b = x.checkBingo()
 #print(b)
 
-with open("test.txt") as f:
+with open("boards.txt") as f:
     ar = f.readlines()
 
 leng = len(ar)
@@ -64,4 +64,18 @@ for i in range(leng):
 leng = len(bingoNum)
 
 for i in range(leng):
+    for o in range(len(brd)):
+        brd[o].updateBingo(bingoNum[i])
+        x = brd[o].checkBingo() 
+        if x:
+            print("BINGO: ", x, ", on board: ", brd[o].getNum())
+            num = bingoNum[i]
+            total = brd[o].getTotal()
+            brd[o].getBoard()
+            brd[o].getBingo()
 
+            break
+    if x:
+        mult = num * total
+        print("num: ", num, ", for total of: ", total)
+        break

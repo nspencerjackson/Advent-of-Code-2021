@@ -16,6 +16,12 @@ class BingoBoard:
     def getBingo(self):
         print(self.bingo)
 
+    def getBoard(self):
+        print(self.board)
+
+    def getNum(self):
+        return self.number
+
     def updateBingo(self, inNum):
         for i in range(self.y):
             for o in range(self.x):
@@ -67,3 +73,11 @@ class BingoBoard:
                 self.checkDiagonal()
 
         return self.bingoBool
+
+    def getTotal(self):
+        total = 0
+        for i in range(self.x):
+            for o in range(self.y):
+                if self.bingo[i][o] == "o":
+                    total += int(self.board[i][o])
+        return total
