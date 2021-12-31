@@ -78,3 +78,27 @@ for i in range(leng):
         print("num: ", num, ", for total of: ", total)
         print("Combined: ", multi)
         break
+
+amountOfBoards = len(brd)
+bingoedBoards = 0
+brk = False
+num = 0
+total = 0
+# second part of puzzle
+for i in range(leng):
+    for o in range(len(brd)):
+        brd[o].updateBingo(bingoNum[i])
+        x = brd[o].checkBingo() 
+        if x:
+            bingoedBoards += 1
+            print("BINGO: ", x, ", on board: ", brd[o].getNum())
+            #print("BingoBoards: ", bingoedBoards, " = ", amountOfBoards)
+            x = False
+            if bingoedBoards == amountOfBoards:
+                num = bingoNum[i]
+                total = brd[o].getTotal()
+                print("num: ", num, ", for total of: ", total)
+
+multi = int(num) * int(total)
+print("Combined: ", multi)
+
