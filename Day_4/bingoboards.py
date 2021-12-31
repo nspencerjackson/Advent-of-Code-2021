@@ -47,11 +47,11 @@ class BingoBoard:
             self.bingoBool = True
         else:
             temp = 0
-            incX = 0
-            for i in range((len(self.bingo - 1)), 0, -1):
-                if self.bingo[i][incX] == "x":
+            decX = self.y - 1
+            for i in range(self.x):
+                if self.bingo[decX][i] == "x":
                     temp += 1
-                incX += 1
+                decX -= 1
             if temp == self.x:
                 self.bingoBool = True
 
