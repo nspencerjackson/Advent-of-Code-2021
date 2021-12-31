@@ -37,7 +37,7 @@ leng = len(ar)
 bingoNum = ar[0].split("\n")
 temp = bingoNum[0]
 bingoNum = temp.split(",")
-print("Bingo numbers: ", bingoNum)
+#print("Bingo numbers: ", bingoNum)
 
 brd = []
 totalBoards = 0
@@ -58,7 +58,7 @@ for i in range(leng):
             board.append(temp.split())
             if boardCount == 4:
                 totalBoards += 1
-                brd.append(BingoBoard(totalBoards, board, boardCount, boardCount))
+                brd.append(BingoBoard(totalBoards, board, 5, 5))
             #print(board)
 
 leng = len(bingoNum)
@@ -71,11 +71,10 @@ for i in range(leng):
             print("BINGO: ", x, ", on board: ", brd[o].getNum())
             num = bingoNum[i]
             total = brd[o].getTotal()
-            brd[o].getBoard()
-            brd[o].getBingo()
 
             break
     if x:
-        mult = num * total
+        multi = int(num) * int(total)
         print("num: ", num, ", for total of: ", total)
+        print("Combined: ", multi)
         break
