@@ -1,19 +1,19 @@
 from bingoboards import *
 
-s = "4  8 12 5"
-ar = s.split()
+#s = "4  8 12 5"
+#ar = s.split()
 
 # have classes for each bingo board
 
-x = BingoBoard(1, [[1,2,3,4],[6,7,8,9],[11,12,13,14],[5,10,15,16]], 4, 4)
+#x = BingoBoard(1, [[1,2,3,4],[6,7,8,9],[11,12,13,14],[5,10,15,16]], 4, 4)
 
-for i in range(4):
-    print(ar[i])
-    x.updateBingo(int(ar[i]))
-    x.getBingo()
+#for i in range(4):
+    #print(ar[i])
+    #x.updateBingo(int(ar[i]))
+    #x.getBingo()
 
-e = x.checkBingo()
-print(e)
+#e = x.checkBingo()
+#print(e)
 #x.updateBingo(4)
 #x.getBingo()
 #x.updateBingo(8)
@@ -25,3 +25,43 @@ print(e)
 
 #b = x.checkBingo()
 #print(b)
+
+with open("test.txt") as f:
+    ar = f.readlines()
+
+leng = len(ar)
+
+#for i in range(leng):
+    #print(ar[i])
+
+bingoNum = ar[0].split("\n")
+temp = bingoNum[0]
+bingoNum = temp.split(",")
+print("Bingo numbers: ", bingoNum)
+
+brd = []
+totalBoards = 0
+board = []
+tempBoard = []
+boardCount = 0
+for i in range(leng):
+    if i != 0:
+        temp = ar[i]
+        if temp == "\n":
+            boardCount = 0
+            board = []
+        else:
+            boardCount += 1
+            #print("Board: ", boardCount)
+            tempBoard = temp.split("\n")
+            temp = tempBoard[0]
+            board.append(temp.split())
+            if boardCount == 4:
+                totalBoards += 1
+                brd.append(BingoBoard(totalBoards, board, boardCount, boardCount))
+            #print(board)
+
+leng = len(bingoNum)
+
+for i in range(leng):
+
