@@ -26,6 +26,7 @@ from bingoboards import *
 #b = x.checkBingo()
 #print(b)
 
+# opens file
 with open("boards.txt") as f:
     ar = f.readlines()
 
