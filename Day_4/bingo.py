@@ -12,17 +12,6 @@ from bingoboards import *
     #x.updateBingo(int(ar[i]))
     #x.getBingo()
 
-#e = x.checkBingo()
-#print(e)
-#x.updateBingo(4)
-#x.getBingo()
-#x.updateBingo(8)
-#x.getBingo()
-#x.updateBingo(12)
-#x.getBingo()
-#x.updateBingo(5)
-#x.getBingo()
-
 #b = x.checkBingo()
 #print(b)
 
@@ -30,6 +19,7 @@ from bingoboards import *
 with open("boards.txt") as f:
     ar = f.readlines()
 
+# Gets length of ar array
 leng = len(ar)
 
 #for i in range(leng):
